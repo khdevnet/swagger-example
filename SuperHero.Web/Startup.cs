@@ -11,6 +11,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using SuperHero.Web.SwaggerFilter;
 using Swashbuckle.AspNetCore.Swagger;
 
 namespace SuperHero.Web
@@ -57,6 +58,7 @@ namespace SuperHero.Web
 
                 //Set the comments path for the swagger json and ui.
                 c.IncludeXmlComments(Path.Combine(basePath + "/SuperHero.Web.xml"));
+                c.OperationFilter<FormFileSwaggerFilter>();
             });
 
         }
